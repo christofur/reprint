@@ -1,0 +1,7 @@
+{
+  "extends": "rackt",
+  "rules": {
+    "indent": "off",
+    "semi": "off"
+  }
+}
