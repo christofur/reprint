@@ -21,20 +21,26 @@ export default function generate(value) {
     }
 
     function generateNumber(model) {
-        return Math.floor(Math.random() * model) + 1
+        return Number.isInteger(model) ?
+            (Math.floor(Math.random() * model) + 1) :
+            (Math.random() * model)
     }
 
     function generateString(model) {
 
         const words = model.split(' ').map(word => {
-            if(Number.isInteger(word)) {
+
+            if(!Number.isNaN(Number.parseInt(word))) {
                 return generateNumber(parseInt(word));
             }
             else{
-                return randomstring.generate({
+                const newWord = randomstring.generate({
                     length: word.length,
-                    charset: word
+                    charset: 'alphabetic',
+                    capitalization: 'lowercase'
                 });
+
+                return newWord.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
             }
         });
 
