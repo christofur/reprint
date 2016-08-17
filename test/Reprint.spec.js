@@ -94,5 +94,27 @@ describe('Reprint', () => {
 
     });
 
+    it('should produce multiple items of the same type', () => {
+
+        const model = {
+            'colour': 'yellow'
+        };
+
+        const reprint = new Reprint(model).get();
+        const copy = reprint.next().value;
+        expect(typeof copy.colour).toBe('string');
+
+        const copy2 = reprint.next().value;
+        expect(typeof copy2.colour).toBe('string');
+
+        const copy3 = reprint.next().value;
+        expect(typeof copy3.colour).toBe('string');
+
+        const copy4 = reprint.next().value;
+        expect(typeof copy4.colour).toBe('string');
+
+
+    });
+
 
 });
