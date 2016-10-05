@@ -1,6 +1,6 @@
 {
   "name": "reprint",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Object mocking for JavaScript",
   "main": "lib/index.js",
   "scripts": {
